@@ -168,13 +168,17 @@ Tento kód v React aplikaci implementuje kontextovou logiku pro správu a sdíle
 <h1>Routes</h1>
 <h3>Route - HomePage.jsx</h3>
 Tento kód zobrazuje hlavní stránku, tedy homepage, kde je uživatel CTA, uživatel je vyzýván k tomu podívat se na své vytvořené deníky.
-<h2>JournalDetail.jsx</h2>
+
+<h3>JournalDetail.jsx</h3>
 Uživatel klikne na deník a zobrazí se mu JournalDetail, tedy záznamy v deníku.
-<h2>JournalsPage.jsx</h2>
+
+<h3>JournalsPage.jsx</h3>
 Stránka na které se zobrazí všechny vytvořené deníky uživatelem.
-<h2>LoginPage.jsx</h2>
+
+<h3>LoginPage.jsx</h3>
 Stránka, kde se uživatel přihlásí ke svému účtu
-<h2>RegistrationPage.jsx</h2>
+
+<h3>RegistrationPage.jsx</h3>
 Stránka, kde se uživatel zaregistruje a vytvoří si svůj vlastní účet
 
 <h3>Stylizace</h3>
@@ -187,3 +191,5 @@ Soubor `App.jsx` slouží jako hlavní součást vaší webové aplikace, kde de
 <h3>main.jsx</h3>
 Soubor `main.jsx` je vstupní bod pro aplikaci React, který zodpovídá za spuštění aplikace a její renderování na stránce. Zajišťuje, že aplikace je připojena k DOM (Document Object Model) a že se správně zobrazí v prohlížeči.
 
+
+<h1>Serverová Část</h1>
