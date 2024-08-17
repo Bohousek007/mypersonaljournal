@@ -29,9 +29,8 @@ ještě přiložím.....
 
 Popisy jednotlivých kódu, co dělá co?
 
-
-<h1>Client část</h1>
-<h3>Component DataLoader.jsx</h3>
+<h1>Client</h1>
+<h3>Component - DataLoader.jsx</h3>
 **K čemu slouží DataLoader?**
 Komponenta `DataLoader` je komponenta vyššího řádu (HOC), která pomáhá načítat data z adresy URL a spravovat stav načítání a ošetřování chyb.
 
@@ -48,12 +47,12 @@ Zde je rozpis toho, co dělá:
 
 Komponenta `DataLoader` je určena k použití jako obal kolem jiných komponent, které potřebují načíst data z adresy URL. Pomocí této komponenty můžete snadno spravovat stav načítání a zpracování chyb pro potřeby načítání dat.
 
-<h2>FlashMessage.jsx</h2>
+<h3>Component - FlashMessage.jsx</h3>
 Komponenta `FlashMessage` v Reactu slouží k zobrazení krátkých zpráv nebo upozornění uživatelům. Může být použita například pro zobrazení chybových hlášení, úspěšných akcí nebo jiných důležitých informací.
 
 Kód definuje komponentu, která přijímá dva parametry: `theme` a `text`. Parametr `theme` určuje styl zprávy (např. “success”, “error”, “warning”), zatímco `text` obsahuje samotný text zprávy. Komponenta pak vrací `div` element s třídou založenou na hodnotě `theme` a zobrazuje text zprávy uvnitř tohoto `div` elementu.)
 
-<h2>JournalEntryItem.jsx</h2>
+<h3>Component - JournalEntryItem.jsx</h3>
 Komponenta `JournalEntryItem` slouží k zobrazení jednotlivého záznamu v deníku. Je navržena tak, aby poskytovala uživatelské rozhraní pro zobrazení názvu záznamu a umožnila uživatelům jeho úpravy, včetně přejmenování a mazání.
 
 ### Hlavní funkce komponenty
@@ -102,7 +101,7 @@ Komponenta `JournalEntryList` slouží k zobrazení a správě jednotlivých zá
 
 Komponenta `JournalEntryList` poskytuje uživatelsky přívětivé rozhraní pro správu záznamů v deníku, zahrnující funkce pro přidávání, mazání a přejmenování záznamů. Komponenta je navržena tak, aby byla interaktivní a snadno použitelná, s důrazem na správu stavu a zpracování chyb, což jsou klíčové aspekty pro robustní a spolehlivé aplikace.
 
-<h2>JournalItem.jsx</h2>
+<h3>Component - JournalItem.jsx</h3>
 Komponenta `JournalItem` je odpovědná za reprezentaci jednotlivého deníku v uživatelském rozhraní. Používá komponentu `Tile`, aby zobrazila informace o deníku a poskytla uživatelské akce pro jeho přejmenování a smazání.
 
 ### Hlavní funkce komponenty
@@ -123,7 +122,7 @@ Komponenta `JournalItem` je odpovědná za reprezentaci jednotlivého deníku v 
 
 Komponenta `JournalItem` je malou, ale důležitou částí aplikace, která zajišťuje zobrazení jednotlivých deníků a poskytuje uživatelům prostředky pro jejich správu. Díky použití `prop-types` zajišťuje, že všechny předávané údaje jsou ve správném formátu, což pomáhá předcházet chybám během vývoje i v běžném provozu.
 
-<h2>JournaList.jsx</h2>
+<h3>Component - JournaList.jsx</h3>
 Komponenta `JournalList` slouží jako uživatelské rozhraní pro správu seznamu deníků v aplikaci. Jejím cílem je umožnit uživatelům efektivně manipulovat s jejich deníky, tedy vytvářet nové deníky, prohlížet existující, přejmenovávat je a případně je mazat.
 
 ### Hlavní funkce komponenty
@@ -153,10 +152,10 @@ Komponenta `JournalList` slouží jako uživatelské rozhraní pro správu sezna
 
 Komponenta `JournalList` poskytuje základní funkce pro správu deníků, jako je zobrazení, vytváření, mazání a přejmenování. Používá interaktivní uživatelské rozhraní s dialogovými okny pro uživatelské vstupy, čímž zajišťuje intuitivní a efektivní používání. Kromě toho obsahuje i mechanismy pro zpracování chyb a zobrazování stavu načítání, což jsou klíčové aspekty pro robustní uživatelské rozhraní.
 
-<h2>Tile.jsx</h2>
+<h3>Component - Tile.jsx</h3>
 Tile je komponenta, která upravuje styl dlaždic u jednotlivých deníků a záznamů.
 
-<h2>RenameButton.jsx</h2>
+<h3>Component - RenameButton.jsx</h3>
 Tlačítko na přejmenování jednotlivých záznamů a deníků..
 <h2>DeleteButton.jsx</h2>
 Tlačítko na mazání záznamů a deníků...
@@ -166,7 +165,7 @@ Tlačítko na mazání záznamů a deníků...
 Tento kód v React aplikaci implementuje kontextovou logiku pro správu a sdílení stavu relace (session) v celé aplikaci.
 
 <h1>Routes</h1>
-<h2>HomePage.jsx</h2>
+<h3>Route - HomePage.jsx</h3>
 Tento kód zobrazuje hlavní stránku, tedy homepage, kde je uživatel CTA, uživatel je vyzýván k tomu podívat se na své vytvořené deníky.
 <h2>JournalDetail.jsx</h2>
 Uživatel klikne na deník a zobrazí se mu JournalDetail, tedy záznamy v deníku.
@@ -177,13 +176,13 @@ Stránka, kde se uživatel přihlásí ke svému účtu
 <h2>RegistrationPage.jsx</h2>
 Stránka, kde se uživatel zaregistruje a vytvoří si svůj vlastní účet
 
-<h2>Stylizace</h2>
+<h3>Stylizace</h3>
 App.css
 index.css
 
-<h2>App.jsx</h2>
+<h3>App.jsx</h3>
 Soubor `App.jsx` slouží jako hlavní součást vaší webové aplikace, kde definujete strukturu rozložení, navigaci, směrování a podmíněné vykreslování na základě uživatelských sezení. Zde je podrobný rozbor jednotlivých částí souboru `App.jsx`
 
-<h2>main.jsx</h2>
+<h3>main.jsx</h3>
 Soubor `main.jsx` je vstupní bod pro aplikaci React, který zodpovídá za spuštění aplikace a její renderování na stránce. Zajišťuje, že aplikace je připojena k DOM (Document Object Model) a že se správně zobrazí v prohlížeči.
 
