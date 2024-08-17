@@ -1,23 +1,60 @@
-const express = require("express");
-const cors = require("cors");
+const express = require('express');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const corsSetup = require('./cors');
+const config = require('./config');
+// const corsSetup = express();
+// app.use(express.json());
+// require("./cors")(app);
+// app.use(expressSession({
+//     secret: "a/#$sd#0$",
+//     resave: false,
+//     saveUninitialized: false,
+//     cookie: {
+//         secure: process.env.NODE_ENV === "production",
+//         httpOnly: true
+//     }
+// }));
+
+
+// Připojení k MongoDB
+mongoose.connect(config.mongoUri, {
+})
+.then(() => {
+  console.log('Connected to MongoDB');
+})
+.catch(err => {
+  console.error('Connection error', err);
+});
+  
+
+// Vytvoření Express aplikace
 const app = express();
-const port = 8000;
+app.use(bodyParser.json());
+corsSetup(app);
 
-const denikController = require("./controller/denik");
-const denikEntryController = require("./controller/denikEntry");
+// Import routerů
+const journalRouter = require('./controller/journalController');
+const journalEntryRouter = require('./controller/journalEntryController');
 
-app.use(express.json()); // podpora pro application/json
-app.use(express.urlencoded({ extended: true })); // podpora pro application/x-www-form-urlencoded
+// Použití routerů
+app.use('/journals', journalRouter);
+app.use('/journalEntry', journalEntryRouter);
 
-app.use(cors());
-
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+// Handler pro kořenovou cestu
+app.get('/', (req, res) => {
+  res.send('Hello World!');
 });
 
-app.use("/denik", denikController);
-app.use("/denikEntry", denikEntryController);
+// Přidání middleware pro GET požadavky na /favicon.ico
+app.get('/favicon.ico', (req, res) => {
+  res.status(204).end();
+});  
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+
+
+// Spuštění serveru
+const PORT = config.port;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });

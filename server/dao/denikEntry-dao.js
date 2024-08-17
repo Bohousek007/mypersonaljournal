@@ -4,7 +4,7 @@ const crypto = require("crypto");
 
 const denikEntryFolderPath = path.join(__dirname, "storage", "denikEntryList");
 
-// create new entry
+// Create New Entry
 function create(entry) {
   try {
     entry.id = crypto.randomBytes(16).toString("hex");
@@ -17,7 +17,7 @@ function create(entry) {
   }
 }
 
-// list all entries
+// List All Entries
 function list() {
   try {
     const files = fs.readdirSync(denikEntryFolderPath);
@@ -31,7 +31,7 @@ function list() {
   }
 }
 
-// delete diary entry
+// Delete Diary Entry
 function deleteEntry(entryId) {
   try {
     const files = fs.readdirSync(denikEntryFolderPath);
