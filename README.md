@@ -29,6 +29,7 @@ ještě přiložím.....
 
 Popisy jednotlivých kódu, co dělá co?
 
+<h1>Components</h1>
 <h2>DataLoader.jsx</h2>
 **K čemu slouží DataLoader?**
 Komponenta `DataLoader` je komponenta vyššího řádu (HOC), která pomáhá načítat data z adresy URL a spravovat stav načítání a ošetřování chyb.
@@ -151,219 +152,37 @@ Komponenta `JournalList` slouží jako uživatelské rozhraní pro správu sezna
 
 Komponenta `JournalList` poskytuje základní funkce pro správu deníků, jako je zobrazení, vytváření, mazání a přejmenování. Používá interaktivní uživatelské rozhraní s dialogovými okny pro uživatelské vstupy, čímž zajišťuje intuitivní a efektivní používání. Kromě toho obsahuje i mechanismy pro zpracování chyb a zobrazování stavu načítání, což jsou klíčové aspekty pro robustní uživatelské rozhraní.
 
-Kód:
-```js
-import { useCallback, useEffect, useState } from "react";
+<h2>Tile.jsx</h2>
+Tile je komponenta, která upravuje styl dlaždic u jednotlivých deníků a záznamů.
+
+<h2>RenameButton.jsx</h2>
+Tlačítko na přejmenování jednotlivých záznamů a deníků..
+<h2>DeleteButton.jsx</h2>
+Tlačítko na mazání záznamů a deníků...
+
+<h1>Contexts</h1>
+<h2>session.jsx</h2>
+Tento kód v React aplikaci implementuje kontextovou logiku pro správu a sdílení stavu relace (session) v celé aplikaci.
+
+<h1>Routes</h1>
+<h2>HomePage.jsx</h2>
+Tento kód zobrazuje hlavní stránku, tedy homepage, kde je uživatel CTA, uživatel je vyzýván k tomu podívat se na své vytvořené deníky.
+<h2>JournalDetail.jsx</h2>
+Uživatel klikne na deník a zobrazí se mu JournalDetail, tedy záznamy v deníku.
+<h2>JournalsPage.jsx</h2>
+Stránka na které se zobrazí všechny vytvořené deníky uživatelem.
+<h2>LoginPage.jsx</h2>
+Stránka, kde se uživatel přihlásí ke svému účtu
+<h2>RegistrationPage.jsx</h2>
+Stránka, kde se uživatel zaregistruje a vytvoří si svůj vlastní účet
+
+<h2>Stylizace</h2>
+App.css
+index.css
+
+<h2>App.jsx</h2>
+Soubor `App.jsx` slouží jako hlavní součást vaší webové aplikace, kde definujete strukturu rozložení, navigaci, směrování a podmíněné vykreslování na základě uživatelských sezení. Zde je podrobný rozbor jednotlivých částí souboru `App.jsx`
+
+<h2>main.jsx</h2>
+Soubor `main.jsx` je vstupní bod pro aplikaci React, který zodpovídá za spuštění aplikace a její renderování na stránce. Zajišťuje, že aplikace je připojena k DOM (Document Object Model) a že se správně zobrazí v prohlížeči.
 
-import Calls from "../utils/api";
-
-import JournalItem from "../components/JournalItem";
-
-import DataLoader from "./DataLoader";
-
-  
-
-// Komponenta JournalList je zodpovědná za zobrazení seznamu deníků
-
-const JournalList = () => {
-
-  // Stavy komponenty pro ukládání seznamu deníků, informace o načítání a chybových hlášeních
-
-  const [journals, setJournals] = useState([]); // 🗂️ Ukládá seznam deníků
-
-  const [loading, setLoading] = useState(true); // ⏳ Indikuje, zda se data načítají
-
-  const [error, setError] = useState(null); // ⚠️ Ukládá chybová hlášení, pokud nastanou
-
-  
-
-  // Funkce pro načtení seznamu deníků z API
-
-  const journalList = useCallback(async () => {
-
-    try {
-
-      setLoading(true); // Nastaví stav načítání na true
-
-      const data = await Calls.journalList(); // Zavolá API a načte seznam deníků
-
-      setJournals(data); // Uloží načtená data do stavu journals
-
-    } catch (err) {
-
-      setError(err.message); // Uloží chybovou zprávu, pokud dojde k chybě při načítání
-
-    } finally {
-
-      setLoading(false); // Nastaví stav načítání na false
-
-    }
-
-  }, []); // Závislosti prázdné, funkce se memorizuje a nebude se měnit při každém renderu
-
-  
-
-  // Funkce pro smazání deníku
-
-  const handleDelete = (id, name) => async () => {
-
-    // Zobrazí potvrzovací dialog pro smazání deníku
-
-    if (window.confirm(`Opravdu chceš smazat tento deník? ${name}?`)) {
-
-      try {
-
-        await Calls.journalDelete(id); // Zavolá API pro smazání deníku
-
-        journalList(); // Aktualizuje seznam deníků po úspěšném smazání
-
-      } catch (error) {
-
-        console.error("Error deleting journal:", error); // Logování chyby do konzole
-
-        setError(error.message); // Uložení chybové zprávy do stavu
-
-      }
-
-    }
-
-  };
-
-  
-
-  // Funkce pro přejmenování deníku
-
-  const handleRename = (id) => async () => {
-
-    // Zobrazí prompt pro zadání nového jména deníku
-
-    const newName = window.prompt("Napiš nový jméno deníku: ");
-
-    if (newName) {
-
-      try {
-
-        await Calls.journalUpdate({
-
-          id: id, // ID deníku, který se má přejmenovat
-
-          newName: newName, // Nové jméno deníku
-
-        });
-
-        journalList(); // Aktualizuje seznam deníků po úspěšném přejmenování
-
-      } catch (error) {
-
-        console.error("Error renaming journal:", error); // Logování chyby do konzole
-
-        setError(error.message); // Uložení chybové zprávy do stavu
-
-      }
-
-    }
-
-  };
-
-  
-
-  // Použití efektu pro načtení seznamu deníků při inicializaci komponenty
-
-  useEffect(() => {
-
-    journalList(); // Zavolá funkci pro načtení seznamu deníků
-
-  }, [journalList]); // Efekt závisí na funkci journalList
-
-  
-
-  // Funkce pro vytvoření nového deníku
-
-  const handleCreateNewJournal = async () => {
-
-    // Zobrazí prompt pro zadání jména nového deníku
-
-    const journalName = window.prompt("Enter the name for the new journal:");
-
-    if (journalName) {
-
-      try {
-
-        await Calls.journalCreate({ name: journalName }); // Zavolá API pro vytvoření nového deníku
-
-        journalList(); // Aktualizuje seznam deníků po úspěšném vytvoření
-
-      } catch (error) {
-
-        console.error("Error creating new journal:", error); // Logování chyby do konzole
-
-        setError(error.message); // Uložení chybové zprávy do stavu
-
-      }
-
-    }
-
-  };
-
-  
-
-  // Ověří, zda je seznam deníků platný a je ve formě pole
-
-  if (!Array.isArray(journals)) return null;
-
-  
-
-  return (
-
-    // Komponenta DataLoader zajišťuje načítání dat a zobrazení chybových hlášení
-
-    <DataLoader url="http://localhost:8000/journals" loading={loading} error={error}>
-
-      {/* Kontejner pro zobrazení seznamu deníků jako mřížky */}
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
-
-        {/* Tlačítko pro vytvoření nového deníku */}
-
-        <div
-
-          onClick={handleCreateNewJournal} // Kliknutí vyvolá vytvoření nového deníku
-
-          className="flex items-center justify-center h-48 w-full bg-gray-200 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:bg-gray-300 transition-colors"
-
-        >
-
-          <span className="text-4xl text-gray-500">+</span> {/* Ikona plus */}
-
-        </div>
-
-        {/* Mapování deníků na komponenty JournalItem */}
-
-        {journals.map((journal) => (
-
-          <JournalItem
-
-            key={journal.id} // Unikátní klíč pro každý deník
-
-            journal={journal} // Předání dat deníku do komponenty JournalItem
-
-            onDelete={handleDelete(journal.id)} // Funkce pro smazání deníku
-
-            onRename={handleRename(journal.id)} // Funkce pro přejmenování deníku
-
-          />
-
-        ))}
-
-      </div>
-
-    </DataLoader>
-
-  );
-
-};
-
-  
-
-export default JournalList;
-```
