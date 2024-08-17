@@ -31,8 +31,7 @@ Popisy jednotlivých kódu, co dělá co?
 
 
 <h1>Client část</h1>
-<h1>Components</h1>
-<h2>DataLoader.jsx</h2>
+<h3>Component DataLoader.jsx</h3>
 **K čemu slouží DataLoader?**
 Komponenta `DataLoader` je komponenta vyššího řádu (HOC), která pomáhá načítat data z adresy URL a spravovat stav načítání a ošetřování chyb.
 
