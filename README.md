@@ -1,6 +1,7 @@
 My fullstack project, using MERN techstack. My Personal Journal is about keeping and creating new journals and entries.
 
 npm install
+
 npm start - client and server starts concurrently..
 
 
