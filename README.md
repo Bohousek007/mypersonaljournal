@@ -18,6 +18,3 @@ npm start - client and server starts concurrently..
 ![screencapture-uuapp-plus4u-net-uu-dockit-maing02-4e68298f1658473e9bf5692272883290-document-sheet-2024-08-17-13_15_05](https://github.com/user-attachments/assets/c4a155a2-6a48-401c-af33-7a74cdd377f1)
 
 
-<h2>Backend</h2>
-![screencapture-uuapp-plus4u-net-uu-dockit-maing02-4e68298f1658473e9bf5692272883290-document-sheet-2024-08-17-13_17_25](https://github.com/user-attachments/assets/a6c30b24-62ba-44b6-b5ad-4cdd65d4b987)
-
