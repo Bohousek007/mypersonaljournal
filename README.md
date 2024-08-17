@@ -29,6 +29,8 @@ ještě přiložím.....
 
 Popisy jednotlivých kódu, co dělá co?
 
+
+<h1>Client část</h1>
 <h1>Components</h1>
 <h2>DataLoader.jsx</h2>
 **K čemu slouží DataLoader?**
