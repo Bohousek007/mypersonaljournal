@@ -158,11 +158,12 @@ Tile je komponenta, která upravuje styl dlaždic u jednotlivých deníků a zá
 
 <h3>Component - RenameButton.jsx</h3>
 Tlačítko na přejmenování jednotlivých záznamů a deníků..
-<h2>DeleteButton.jsx</h2>
+
+<h3>DeleteButton.jsx</h3>
 Tlačítko na mazání záznamů a deníků...
 
 <h1>Contexts</h1>
-<h2>session.jsx</h2>
+<h3>session.jsx</h3>
 Tento kód v React aplikaci implementuje kontextovou logiku pro správu a sdílení stavu relace (session) v celé aplikaci.
 
 <h1>Routes</h1>
