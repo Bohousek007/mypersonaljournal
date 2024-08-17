@@ -70,7 +70,7 @@ Komponenta `JournalEntryItem` slouží k zobrazení jednotlivého záznamu v den
 
 Komponenta `JournalEntryItem` je základní stavební kámen pro zobrazení a správu jednotlivých záznamů deníku. Poskytuje čisté a funkční uživatelské rozhraní, které zahrnuje zobrazení názvu záznamu a ovládací prvky pro jeho úpravy. Je navržena tak, aby byla snadno použitelná a vizuálně přitažlivá, s důrazem na uživatelskou interakci.
 
-<h2>JournalEntryList.jsx</h2>
+<h3>Component - JournalEntryList.jsx</h3>
 Komponenta `JournalEntryList` slouží k zobrazení a správě jednotlivých záznamů v deníku. Poskytuje uživatelské rozhraní pro přidávání, mazání a přejmenování záznamů v rámci vybraného deníku.
 
 ### Hlavní funkce komponenty
