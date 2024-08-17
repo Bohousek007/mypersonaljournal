@@ -1,0 +1,112 @@
+/* Zajistí, že celé tělo stránky se roztáhne na výšku a patička je na dně */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Aby se patička vždy nacházela na spodní části */
+  max-width: 1280px;
+  margin: 0 auto;
+  justify-content: space-between; /* Ensure footer is at the bottom */
+}
+
+
+.footer {
+  box-sizing: border-box;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+  flex-shrink: 0;
+}
+
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+
+.text-white:hover {
+  text-decoration: underline;
+}
+
+
+
+.navbar {
+  background-color: rgba(162, 162, 162, 0.327); /* Průhledná bílá barva */
+  backdrop-filter: blur(10px); /* Efekt rozmazání */
+}
+
+.navbar .nav-link {
+  color: #000000; /* Bílé odkazy */
+}
+
+.navbar .nav-link:hover {
+  text-decoration: underline; /* Zvýraznění při přejetí myší */
+}
+
+.navbar-brand, .navbar-nav .nav-item {
+  margin-right: 1rem; /* Odstup mezi položkami menu */
+}
+
+
+.site-logo {
+  height: 20px;
+}
+
+
+/* Journal Entry Item CSS*/
+.journal-entry {
+  /* Add gradient background */
+  background: linear-gradient(to bottom, #c9c9ff, #7a7aff);
+  /* Add rounded corners with a twist */
+  position: relative;
+  border-radius: 10px;
+}
+
+.journal-entry::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 0 10px 0 0;
+}
+
+.journal-entry-title {
+  /* Add custom font and typography */
+  font-family: "Great Vibes", cursive;
+  letter-spacing: 0.05em;
+}
+
+.rename-button:hover {
+  /* Add icon animation on hover */
+  transform: rotate(10deg);
+  transition: transform 0.2s ease-in-out;
+}
+
+.delete-button:active {
+  /* Add icon animation on click */
+  animation: pulse 0.5s ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
