@@ -194,3 +194,4 @@ Soubor `main.jsx` je vstupní bod pro aplikaci React, který zodpovídá za spu�
 
 
 <h1>Serverová Část</h1>
+Dopíšu až bude čas
